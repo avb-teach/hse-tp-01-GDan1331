@@ -17,5 +17,5 @@ for i in os.walk(input_dir):
             os.system(f"mkdir {create}")
     for file in i[2]:
         os.system(
-                f'cp {i[0]}/{file} {create[:len(create) - 1]}/'
+                f'cp {i[0]}/{file} {create}'
             )
