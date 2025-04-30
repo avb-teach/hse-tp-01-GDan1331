@@ -16,11 +16,6 @@ for i in os.walk(input_dir):
         if not os.path.isdir(create):
             os.system(f"mkdir {create}")
     for file in i[2]:
-        if create != output_dir + '/':
-            os.system(
+        os.system(
                 f'cp {i[0]}/{file} {create[:len(create) - 1]}/'
-            )
-        else:
-            os.system(
-                f'cp {i[0]}/{file} {output_dir}/'
             )
