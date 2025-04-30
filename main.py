@@ -7,16 +7,14 @@ max_depth = sys.argv[3]
 max_depth = int(max_depth) - 1
 exit(max_depth)
 for i in os.walk(input_dir):
-    if i[2]:
-        pth = i[0].split('/')[1:]
-        create = output_dir + "/"
-        for j in pth[max(0, len(pth) - max_depth):]:
-            create += j + "/"
-            if not os.path.isdir(create):
-                os.system(f"mkdir {create}")
-        print(create)
-        for file in i[2]:
-            print(i[0], file)
-            os.system(
-                    f'cp {i[0]}/{file} {create}'
-                )
+    pth = i[0].split('/')[1:]
+    create = output_dir + "/"
+    for j in pth[max(0, len(pth) - max_depth):]:
+        create += j + "/"
+        if not os.path.isdir(create):
+            os.system(f"mkdir {create}")
+
+    for file in i[2]:
+        os.system(
+                f'cp {i[0]}/{file} {create}'
+            )
