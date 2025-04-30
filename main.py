@@ -7,7 +7,7 @@ max_depth = sys.argv[3]
 max_depth = int(max_depth) - 1
 for i in os.walk(input_dir):
     pth = i[0].split('/')[1:]
-    depth_path = pth[len(pth) - max_depth:]
+    depth_path = pth[max(0, len(pth) - max_depth):]
     create = output_dir + "/"
     for j in depth_path:
         create += j + "/"
